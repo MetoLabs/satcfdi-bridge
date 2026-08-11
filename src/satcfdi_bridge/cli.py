@@ -2,18 +2,19 @@ from __future__ import annotations
 
 import argparse
 import getpass
-import json
-import os
 import sys
 from pathlib import Path
 from typing import Any
 
-from . import PROTOCOL_VERSION, __version__
+from . import (
+    PROTOCOL_VERSION,
+    __version__,
+    operations,  # noqa: F401
+)
 from .engine import parse_stdin, run_request
 from .errors import BridgeError
 from .protocol import dump_json, package_version
 from .registry import capabilities
-from . import operations  # noqa: F401
 
 
 def machine_exec(args: argparse.Namespace) -> int:
@@ -65,7 +66,7 @@ def human_request(args) -> dict[str, Any]:
 
 def human_exec(args) -> int:
     payload, code = run_request(human_request(args), debug=args.debug)
-    print(dump_json(payload, pretty=True if not args.compact else False))
+    print(dump_json(payload, pretty=not args.compact))
     return code
 
 

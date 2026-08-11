@@ -1,5 +1,5 @@
-from satcfdi_bridge.registry import capabilities
 from satcfdi_bridge import operations  # noqa: F401
+from satcfdi_bridge.registry import capabilities
 
 
 def test_expected_operations_registered():

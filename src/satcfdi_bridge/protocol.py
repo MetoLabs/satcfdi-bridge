@@ -26,7 +26,7 @@ def new_request_id(value: str | None = None) -> str:
 class Timer:
     started: float = 0.0
 
-    def __enter__(self) -> "Timer":
+    def __enter__(self) -> Timer:  # noqa: PYI034
         self.started = time.monotonic()
         return self
 
