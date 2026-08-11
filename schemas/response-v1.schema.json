@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://metolabs.dev/satcfdi-bridge/response-v1.schema.json",
+  "title": "SATCFDI Bridge Response v1",
+  "type": "object",
+  "required": ["schema_version", "ok", "request_id", "operation", "result", "error", "meta"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "ok": {"type": "boolean"},
+    "request_id": {"type": "string"},
+    "operation": {"type": ["string", "null"]},
+    "result": {},
+    "error": {
+      "type": ["object", "null"],
+      "properties": {
+        "code": {"type": "string"},
+        "message": {"type": "string"},
+        "retryable": {"type": "boolean"},
+        "details": {"type": "object"}
+      }
+    },
+    "meta": {"type": "object"}
+  }
+}

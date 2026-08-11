@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "request_id": "example-001",
+  "operation": "csf.download",
+  "params": {
+    "credentials": {
+      "certificate": {"path": "/secure/fiel.cer"},
+      "key": {"path": "/secure/fiel.key"},
+      "password": "REPLACE_AT_RUNTIME"
+    },
+    "output": {
+      "mode": "file",
+      "path": "/tmp/constancia.pdf"
+    }
+  }
+}
